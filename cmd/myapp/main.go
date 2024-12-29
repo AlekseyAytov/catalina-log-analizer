@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aytovav/logAnalizer/internal"
+	"aytovav/logAnalizer/internal/interactionSaving"
 	"fmt"
 	"time"
 )
@@ -12,10 +12,19 @@ func main() {
 		fmt.Println(time.Since(start))
 	}()
 
-	dataChannel := make(chan internal.ParsedData)
-	go internal.CaseCreating("logs_analizer/catalina_2.out", dataChannel)
+	// dataChannel := make(chan caseCreating.ParsedData)
+	// go caseCreating.CaseCreating("logs_analizer/catalina_2.out", dataChannel)
 
-	err := internal.CaseCreatingInfoWrite("logs_analizer/result_case_creating.txt", dataChannel)
+	// err := caseCreating.CaseCreatingInfoWrite("logs_analizer/result_case_creating.txt", dataChannel)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	return
+	// }
+
+	dataChannel := make(chan interactionSaving.ParsedData)
+	go interactionSaving.InterSaving("logs_analizer/catalina_2.out", dataChannel)
+
+	err := interactionSaving.InterSavingInfoWrite("logs_analizer/result_ineraction_saving.txt", dataChannel)
 	if err != nil {
 		fmt.Println(err)
 		return

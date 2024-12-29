@@ -1,0 +1,99 @@
+279021639 2024-11-25 03:19:51,257 [https-jsse-nio-8443-exec-4 user=ZijatdinovaRR]  INFO ACFAttributeManager - init time: 3 ms; Session: [none]
+279021639 2024-11-25 03:19:51,257 [https-jsse-nio-8443-exec-4 user=ZijatdinovaRR] ERROR ImportWizardControllerBase - Can't set value '[null]' for attr[ResultCommunication]: null
+279021659 2024-11-25 03:19:51,277 [https-jsse-nio-8443-exec-4 user=ZijatdinovaRR]  INFO ACFAttributeManager - init time: 0 ms; Session: [none]
+279021683 2024-11-25 03:19:51,301 [https-jsse-nio-8443-exec-4 ] DEBUG JerseyServlet - POST /api/current/project/corebo00000000000ng9hgl5vhtinhmo/interaction/node_1_domain_0_nauss_0_1732214988_47691
+CLIENT: 10.149.100.48
+USER: ZijatdinovaRR
+REQUEST HEADERS:
+        host: naucc.abb-win.akbars.ru:8443
+        authorization: Basic d3NyZXN0OkxpaXNlZXI3YWlrZWkvYWNvaHF1ZWV0aQ==
+        run_as_user: ZijatdinovaRR
+        x-request-id: 334ce928e268491ebfd1c478c90e8853
+        x-operation-id: 38e4b3fcc7ec471fb6508d37de95f07d
+        x-ext-request-id: f77474352541453dbf3ce6cb388f2163
+        x-origin: Abdt.Aimee.NaumenAdapter
+        traceparent: 00-51e8f6222f413a739efa7ef4494d696d-abb0b4999fe3833a-00
+        content-type: application/json; charset=utf-8
+        content-length: 232
+RESPONSE STATUS: 201
+RESPONSE HEADERS:
+        Vary: Origin
+        Vary: Origin
+        Vary: Origin
+        X-Content-Type-Options: nosniff
+        X-XSS-Protection: 0
+        Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+        Pragma: no-cache
+        Expires: 0
+        Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+        Content-Type: application/json
+        Content-Language: ru-RU
+        Transfer-Encoding: chunked
+        Date: Mon, 25 Nov 2024 00:19:51 GMT
+279021685 2024-11-25 03:19:51,303 [NpiClientThread-0 ] DEBUG NpiClientBase - Server Response (read iteration: 1)
+279021750 2024-11-25 03:19:51,368 [https-jsse-nio-8443-exec-12 ] ERROR RestUserSwitchConfig - Usage of deprecated header RUN_AS_USER. Use X-NCC-RUN-AS-USER instead.
+279021751 2024-11-25 03:19:51,369 [https-jsse-nio-8443-exec-12 ]  INFO RestUserSwitchConfig - Switching person [wsrest] to [ZijatdinovaRR] for request: /api/current/project/corebo00000000000ogs9g8e2307ag4k/interaction/node_1_domain_0_nauss_0_1732214988_47691
+279021754 2024-11-25 03:19:51,372 [https-jsse-nio-8443-exec-12 user=ZijatdinovaRR]  WARN AdviceTraits - Method Not Allowed: null
+279021755 2024-11-25 03:19:51,373 [https-jsse-nio-8443-exec-12 ] DEBUG JerseyServlet - POST /api/current/project/corebo00000000000ogs9g8e2307ag4k/interaction/node_1_domain_0_nauss_0_1732214988_47691
+CLIENT: 10.149.100.32
+USER: ZijatdinovaRR
+REQUEST HEADERS:
+        host: naucc.abb-win.akbars.ru:8443
+        authorization: Basic d3NyZXN0OkxpaXNlZXI3YWlrZWkvYWNvaHF1ZWV0aQ==
+        run_as_user: ZijatdinovaRR
+        x-request-id: 65b96bb590a2433c9c23c3ef1e35df03
+        x-operation-id: a208434b08f14e6888c0de98aa8f4a5d
+        x-ext-request-id: d3fb7bfec1b04968b547fec7bd5ff0a8
+        x-origin: Abdt.Aimee.NaumenAdapter
+        traceparent: 00-112f3202cc1f3dfb5448bb9da9e6aea5-d5b69457aa34af74-00
+        content-type: application/json; charset=utf-8
+        content-length: 232
+RESPONSE STATUS: 405
+RESPONSE HEADERS:
+        Vary: Origin
+        Vary: Origin
+        Vary: Origin
+        X-Content-Type-Options: nosniff
+        X-XSS-Protection: 0
+        Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+        Pragma: no-cache
+        Expires: 0
+        Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+        Content-Type: application/problem+json;charset=UTF-8
+        Content-Language: ru-RU
+        Transfer-Encoding: chunked
+        Date: Mon, 25 Nov 2024 00:19:51 GMT
+281775493 2024-11-25 04:05:45,111 [https-jsse-nio-8443-exec-1 ] DEBUG JerseyServlet - POST /api/current/project/corebo00000000000ng9hgl5vhtinhmo/interaction/node_1_domain_2_nauss_0_1732214988_47694
+CLIENT: 10.149.100.39
+USER: MrX
+REQUEST HEADERS:
+        host: naucc.abb-win.akbars.ru:8443
+        authorization: Basic d3NyZXN0OkxpaXNlZXI3YWlrZWkvYWNvaHF1ZWV0aQ==
+        run_as_user: ZijatdinovaRR
+        x-request-id: 7001093ccf8f4281a52dba4a3cc3f88d
+        x-operation-id: 26834456df37480d940f37f72183b5fb
+        x-ext-request-id: 0b9fe1045594477fb61d342982b63936
+        x-origin: Abdt.Aimee.NaumenAdapter
+        traceparent: 00-cde1990ad5a6e8a252d50a698405e92f-4a7851dca54323bb-00
+        content-type: application/json; charset=utf-8
+        content-length: 231
+RESPONSE STATUS: 201
+RESPONSE HEADERS:
+        Vary: Origin
+        Vary: Origin
+        Vary: Origin
+        X-Content-Type-Options: nosniff
+        X-XSS-Protection: 0
+        Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+        Pragma: no-cache
+        Expires: 0
+        Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+        Content-Type: application/json
+        Content-Language: ru-RU
+        Transfer-Encoding: chunked
+        Date: Mon, 25 Nov 2024 01:05:44 GMT
+281775531 2024-11-25 04:05:45,149 [https-jsse-nio-8443-exec-4 ] ERROR RestUserSwitchConfig - Usage of deprecated header RUN_AS_USER. Use X-NCC-RUN-AS-USER instead.
+281775532 2024-11-25 04:05:45,150 [https-jsse-nio-8443-exec-4 ]  INFO RestUserSwitchConfig - Switching person [wsrest] to [ZijatdinovaRR] for request: /api/current/project/corebo00000000000ng9hgl5vhtinhmo/interaction/node_1_domain_2_nauss_0_1732214988_47694
+281775543 2024-11-25 04:05:45,161 [https-jsse-nio-8443-exec-4 user=ZijatdinovaRR]  INFO ACFAttributeManager - init time: 2 ms; Session: [none]
+281775543 2024-11-25 04:05:45,161 [https-jsse-nio-8443-exec-4 user=ZijatdinovaRR] ERROR ImportWizardControllerBase - Can't set value '[null]' for attr[ResultCommunication]: null
+281775544 2024-11-25 04:05:45,162 [https-jsse-nio-8443-exec-4 user=ZijatdinovaRR]  INFO ACFAttributeManager - init time: 0 ms; Session: [none]

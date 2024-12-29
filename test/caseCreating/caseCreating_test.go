@@ -1,7 +1,7 @@
-package internal_test
+package casecreating_test
 
 import (
-	"aytovav/logAnalizer/internal"
+	"aytovav/logAnalizer/internal/caseCreating"
 	"strings"
 	"testing"
 )
@@ -36,12 +36,12 @@ RESPONSE HEADERS:
 
 func TestParseHeaders(t *testing.T) {
 	data := strings.Split(str, "\n")
-	expected := internal.ParsedHeaders{
+	expected := caseCreating.ParsedHeaders{
 		StatusCode: "201",
 		CaseID:     "ocpcas00000000000p4jdccq3hqicf1c",
 	}
 
-	res := internal.ParseHeaders(data)
+	res := caseCreating.ParseHeaders(data)
 	if res != expected {
 		t.Error()
 	}
@@ -49,12 +49,12 @@ func TestParseHeaders(t *testing.T) {
 
 func TestCaseCreating(t *testing.T) {
 	dataFile := "sample_caseCreating.txt"
-	expected := []internal.ParsedData{
+	expected := []caseCreating.ParsedData{
 		{
 			RequestID: "5605257630",
 			Date:      "2024-10-02 17:39:57,092",
 			ProjectID: "corebo00000000000om63bmce5j5en44",
-			ParsedHeaders: internal.ParsedHeaders{
+			ParsedHeaders: caseCreating.ParsedHeaders{
 				StatusCode: "201",
 				CaseID:     "ocpcas00000000000p4jdccq3hqicf1c",
 			},
@@ -63,7 +63,7 @@ func TestCaseCreating(t *testing.T) {
 			RequestID: "5605081619",
 			Date:      "2024-10-02 17:37:01,081",
 			ProjectID: "corebo00000000000om63bmce5j5en44",
-			ParsedHeaders: internal.ParsedHeaders{
+			ParsedHeaders: caseCreating.ParsedHeaders{
 				StatusCode: "201",
 				CaseID:     "ocpcas00000000000p4jd9mrs283s8m8",
 			},
@@ -72,17 +72,17 @@ func TestCaseCreating(t *testing.T) {
 			RequestID: "5605087673",
 			Date:      "2024-10-02 17:37:07,135",
 			ProjectID: "corebo00000000000om63bmce5j5en44",
-			ParsedHeaders: internal.ParsedHeaders{
+			ParsedHeaders: caseCreating.ParsedHeaders{
 				StatusCode: "201",
 				CaseID:     "ocpcas00000000000p4jd9pqi22gb68k",
 			},
 		},
 	}
 
-	dataChannel := make(chan internal.ParsedData)
-	go internal.CaseCreating(dataFile, dataChannel)
+	dataChannel := make(chan caseCreating.ParsedData)
+	go caseCreating.CaseCreating(dataFile, dataChannel)
 
-	result := []internal.ParsedData{}
+	result := []caseCreating.ParsedData{}
 	for val := range dataChannel {
 		result = append(result, val)
 	}
