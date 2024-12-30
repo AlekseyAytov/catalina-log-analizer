@@ -2,6 +2,8 @@ package interactionsaving_test
 
 import (
 	"aytovav/logAnalizer/internal/interactionSaving"
+	"fmt"
+	"os"
 	"strings"
 	"testing"
 )
@@ -83,8 +85,15 @@ func TestInteractionSaving(t *testing.T) {
 		},
 	}
 
+	inF, err := os.Open(dataFile)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer inF.Close()
+
 	dataChannel := make(chan interactionSaving.ParsedData)
-	go interactionSaving.InterSaving(dataFile, dataChannel)
+	go interactionSaving.InterSaving(inF, dataChannel)
 
 	result := []interactionSaving.ParsedData{}
 	for val := range dataChannel {

@@ -3,7 +3,7 @@ package interactionSaving
 import (
 	"bufio"
 	"fmt"
-	"os"
+	"io"
 	"regexp"
 	"runtime"
 	"strings"
@@ -76,22 +76,13 @@ func ParseData(row string) (bool, ParsedData) {
 }
 
 // InterSaving производит построчный анализ файла и передает в канал найденные данные
-func InterSaving(fileName string, out chan<- ParsedData) {
-	f, err := os.Open(fileName)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fileInfo, _ := f.Stat()
-	fmt.Printf("Parsing file %s, it's size %d Mb\n", fileInfo.Name(), fileInfo.Size()/1024/1024)
-	defer f.Close()
-
+func InterSaving(file io.Reader, out chan<- ParsedData) {
 	// result := make([]ParsedData, 0, 100)
 	var isBlockOfData bool
 	headerText := make([]string, 0, 30)
 	parsed := ParsedData{}
 
-	scanner := bufio.NewScanner(f)
+	scanner := bufio.NewScanner(file)
 	// newBuf := make([]byte, 100*1024)
 	// scanner.Buffer(newBuf, 0)
 	printMemUsage()
@@ -133,23 +124,16 @@ func InterSaving(fileName string, out chan<- ParsedData) {
 }
 
 // InterSavingInfoWrite получает из канала итоговую структуру и записыввает в файл
-func InterSavingInfoWrite(fileName string, in <-chan ParsedData) error {
-	outF, err := os.Create(fileName)
-	if err != nil {
-		return err
-	}
-	defer outF.Close()
-
+func InterSavingInfoWrite(file io.Writer, in <-chan ParsedData) (int, error) {
 	couter := 0
 	for p := range in {
-		_, err := outF.WriteString(fmt.Sprintf("%s %s - %s %s: %s %s\n", p.RequestID, p.Date, p.ProjectID, p.SessionID, p.StatusCode, p.User))
+		_, err := io.WriteString(file, fmt.Sprintf("%s %s - %s %s: %s %s\n", p.RequestID, p.Date, p.ProjectID, p.SessionID, p.StatusCode, p.User))
 		if err != nil {
-			return err
+			return 0, err
 		}
 		couter++
 	}
-	fmt.Printf("Successfully written %d rows to file: %s\n", couter, outF.Name())
-	return nil
+	return couter, nil
 }
 
 func printMemUsage() {

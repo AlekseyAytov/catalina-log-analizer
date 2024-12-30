@@ -2,6 +2,8 @@ package casecreating_test
 
 import (
 	"aytovav/logAnalizer/internal/caseCreating"
+	"fmt"
+	"os"
 	"strings"
 	"testing"
 )
@@ -79,8 +81,15 @@ func TestCaseCreating(t *testing.T) {
 		},
 	}
 
+	inF, err := os.Open(dataFile)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer inF.Close()
+
 	dataChannel := make(chan caseCreating.ParsedData)
-	go caseCreating.CaseCreating(dataFile, dataChannel)
+	go caseCreating.CaseCreating(inF, dataChannel)
 
 	result := []caseCreating.ParsedData{}
 	for val := range dataChannel {
