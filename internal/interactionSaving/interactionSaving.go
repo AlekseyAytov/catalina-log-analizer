@@ -85,7 +85,7 @@ func InterSaving(file io.Reader, out chan<- ParsedData) {
 	scanner := bufio.NewScanner(file)
 	// newBuf := make([]byte, 100*1024)
 	// scanner.Buffer(newBuf, 0)
-	printMemUsage()
+	// printMemUsage()
 	for scanner.Scan() {
 
 		row := strings.Trim(scanner.Text(), " ")
@@ -119,7 +119,7 @@ func InterSaving(file io.Reader, out chan<- ParsedData) {
 			}
 		}
 	}
-	printMemUsage()
+	// printMemUsage()
 	close(out)
 }
 

@@ -58,6 +58,7 @@ func main() {
 	}()
 
 	// action caseCreating
+	// go spinner()
 	// dataChannel := make(chan caseCreating.ParsedData)
 	// go caseCreating.CaseCreating(inF, dataChannel)
 
@@ -68,6 +69,7 @@ func main() {
 	// }
 
 	// action interactionSaving
+	go spinner()
 	dataChannel := make(chan interactionSaving.ParsedData)
 	go interactionSaving.InterSaving(inF, dataChannel)
 
@@ -77,5 +79,14 @@ func main() {
 		return
 	}
 
-	fmt.Printf("Successfully written %d rows to file: %s\n", n, outF.Name())
+	fmt.Printf("\rSuccessfully written %d rows to file: %s\n", n, outF.Name())
+}
+
+func spinner() {
+	for {
+		for _, r := range `-\|/` {
+			fmt.Printf("\r%c", r)
+			time.Sleep(200 * time.Millisecond)
+		}
+	}
 }
